@@ -9,9 +9,10 @@ package com.mycompany.oxlab4;
  * @author minnie
  */
 public class Table {
-    private char[][] table = {{'-', '-', '-'}, {'-', '-', '-'}, {'-', '-', '-'}};
+
+    private String[][] table = {{"-", "-", "-"}, {"-", "-", "-"}, {"-", "-", "-"}};
     private Player player1, player2, currentPlayer;
-    private int row,col;
+    private int row, col;
 
     public Table(Player player1, Player player2) {
         this.player1 = player1;
@@ -19,7 +20,7 @@ public class Table {
         this.currentPlayer = player1;
     }
 
-    public char[][] getTable() {
+    public String[][] getTable() {
         return table;
     }
 
@@ -28,7 +29,7 @@ public class Table {
     }
 
     public boolean setRowCol(int row, int col) {
-        if (table[row - 1][col - 1] == '-') {
+        if (table[row - 1][col - 1].equals("-")) {
             table[row - 1][col - 1] = currentPlayer.getSymbol();
             this.row = row;
             this.col = col;
@@ -36,27 +37,27 @@ public class Table {
         }
         return false;
     }
+
     public boolean checkWin() {
-        if(checkRow()) {
+        if (checkRow()) {
             saveWin();
             return true;
         }
         return false;
     }
-    public boolean checkRow() {
-        return table[row-1][0]!= '-' && table[row-1][0]==table[row-1][1]&&table[row-1][0]==table[row-1][2];
+
+    private boolean checkRow() {
+        for (int j = 0; j < 3; j++) {
+            if (!table[row - 1][j].equals(currentPlayer.getSymbol())) {
+                return false;
+            }
+        }
+        return true;
     }
-    public boolean checkCol() {
-        return false;
-    }
-    public boolean checkX1() {
-        return false;
-    }
-    public boolean checkX2() {
-        return false;
-    }
+
+   
+
     private void saveWin() {
-        
         if (currentPlayer == player1) {
             player1.win();
             player2.lose();
@@ -64,8 +65,8 @@ public class Table {
             player2.win();
             player1.lose();
         }
-
     }
-    
 
 }
+
+
