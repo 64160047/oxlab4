@@ -37,10 +37,14 @@ public class Table {
         return false;
     }
     public boolean checkWin() {
+        if(checkRow()) {
+            saveWin();
+            return true;
+        }
         return false;
     }
     public boolean checkRow() {
-        return false;
+        return table[row-1][0]!= '-' && table[row-1][0]==table[row-1][1]&&table[row-1][0]==table[row-1][2];
     }
     public boolean checkCol() {
         return false;
@@ -50,6 +54,17 @@ public class Table {
     }
     public boolean checkX2() {
         return false;
+    }
+    private void saveWin() {
+        
+        if (currentPlayer == player1) {
+            player1.win();
+            player2.lose();
+        } else {
+            player2.win();
+            player1.lose();
+        }
+
     }
     
 
