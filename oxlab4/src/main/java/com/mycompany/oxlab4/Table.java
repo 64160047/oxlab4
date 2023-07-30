@@ -39,7 +39,7 @@ public class Table {
     }
 
     public boolean checkWin() {
-        if (checkRow()) {
+        if (checkRow() || checkCol()){
             saveWin();
             return true;
         }
@@ -54,6 +54,16 @@ public class Table {
         }
         return true;
     }
+    private boolean checkCol() {
+        for (int i = 0; i < 3; i++) {
+            if (!table[i][col - 1].equals(currentPlayer.getSymbol())) {
+                return false;
+            }
+        }
+        return true;
+
+    }
+
 
    
 
