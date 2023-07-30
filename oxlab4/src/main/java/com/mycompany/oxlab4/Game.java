@@ -19,17 +19,31 @@ public class Game {
 
     public void play() {
         printWelcome();
-        //printTable();
+        printTable();
         //printTurn();
         //inputRowCol();
         if (table.checkWin()) {
+            System.out.println("WELCOME OX GAME 👀");
 
         }
 
     }
 
     private void printWelcome() {
-        System.out.println("----- Welcome to XO Game -----");
+        System.out.println("WELCOME OX GAME 👀");
     }
+     private void printTable() {
+        String[][] t = table.getTable();
+        System.out.println(" ----------- ");
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                System.out.print("  " + t[i][j] + " ");
+            }
+            System.out.println();
+        }
+        System.out.println(" ----------- ");
+
+    }
+
 
 }
