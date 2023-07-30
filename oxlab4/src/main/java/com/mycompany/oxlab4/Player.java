@@ -9,16 +9,19 @@ package com.mycompany.oxlab4;
  * @author minnie
  */
 public class Player {
-    private String symbol;
+    private char symbol;
     private int winCount, loseCount, drawCount;
 
-    public Player() {
-        
+
+    public Player(char symbol) {
+        this.symbol = symbol;
     }
 
-    public String getSymbol() {
+
+     public char getSymbol() {
         return symbol;
     }
+
 
     public int getInCount() {
         return winCount;
