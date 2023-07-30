@@ -39,7 +39,7 @@ public class Table {
     }
 
     public boolean checkWin() {
-        if (checkRow() || checkCol()){
+        if (checkRow() || checkCol() || checkDiagonal()){
             saveWin();
             return true;
         }
@@ -61,6 +61,27 @@ public class Table {
             }
         }
         return true;
+
+    }
+    private boolean checkDiagonal() {
+        if (row - 1 == col - 1) {
+            for (int i = 0; i < 3; i++) {
+                if (!table[i][i].equals(currentPlayer.getSymbol())) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        if ((row + col) - 2 == 2) {
+            for (int i = 0; i < 3; i++) {
+                if (!table[i][table.length - 1 - i].equals(currentPlayer.getSymbol())) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        return false;
+    }
 
     }
 
