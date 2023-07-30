@@ -9,7 +9,7 @@ package com.mycompany.oxlab4;
  * @author minnie
  */
 public class Player {
-    private String symbol;
+     private String symbol;
     private int winCount, loseCount, drawCount;
 
     public Player(String symbol) {
@@ -43,6 +43,12 @@ public class Player {
     public void draw() {
         drawCount++;
     }
+
+    @Override
+    public String toString() {
+        return "Player:" + symbol + ", win:" + winCount + ", lose:" + loseCount + ", draw:" + drawCount;
+    }
+
 
 
     
