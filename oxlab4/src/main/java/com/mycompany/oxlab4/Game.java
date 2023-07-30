@@ -20,7 +20,7 @@ public class Game {
     public void play() {
         printWelcome();
         printTable();
-        //printTurn();
+        printTurn();
         //inputRowCol();
         if (table.checkWin()) {
             System.out.println("WELCOME OX GAME 👀");
@@ -34,16 +34,20 @@ public class Game {
     }
      private void printTable() {
         String[][] t = table.getTable();
-        System.out.println(" ----------- ");
+        System.out.println(" ⎯⎯⎯⎯⎯⎯⎯ ");
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
                 System.out.print("  " + t[i][j] + " ");
             }
             System.out.println();
         }
-        System.out.println(" ----------- ");
+        System.out.println(" ⎯⎯⎯⎯⎯⎯⎯ ");
 
     }
+     private void printTurn() {
+        System.out.println("Now ➤ " + table.getCurrentPlayer().getSymbol() + " turn");
+    }
+
 
 
 }
